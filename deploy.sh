@@ -1,0 +1,19 @@
+#!/bin/bash
+
+echo "Ì∫Ä D√©ploiement de l'application de pr√©diction immobili√®re..."
+
+# Activation de l'environnement virtuel
+source venv/bin/activate
+
+# Installation des d√©pendances
+pip install -r requirements.txt
+
+# Cr√©ation des dossiers n√©cessaires
+mkdir -p models
+mkdir -p data/raw
+mkdir -p data/processed
+mkdir -p assets
+
+# Lancement de l'application
+echo "Ìºê Lancement de l'application Streamlit..."
+streamlit run app.py --server.port 8501 --server.address 0.0.0.0

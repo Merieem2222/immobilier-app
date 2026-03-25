@@ -1,0 +1,40 @@
+app:
+  title: "Prédiction Immobilière Paris 2025"
+  layout: wide
+  initial_sidebar_state: expanded
+
+data:
+  sources:
+    - seloger_api
+    - pap_scraper
+    - data_gouv
+  update_frequency: daily
+  cache_duration: 3600
+
+models:
+  kmeans:
+    n_clusters: 5
+    random_state: 42
+  predictor:
+    algorithm: random_forest
+    n_estimators: 100
+    test_size: 0.2
+
+clusters:
+  descriptions:
+    0: "Économique"
+    1: "Moyen"
+    2: "Supérieur"
+    3: "Luxe"
+    4: "Exceptionnel"
+  colors:
+    - "#FF6B35"
+    - "#FF9500"
+    - "#FFB86C"
+    - "#FFD699"
+    - "#FFF2CC"
+
+map:
+  center: [48.8566, 2.3522]
+  zoom_start: 12
+  tile: "OpenStreetMap"
